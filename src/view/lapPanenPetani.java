@@ -5,6 +5,11 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author InSearchOfIncredible
@@ -16,6 +21,35 @@ public class lapPanenPetani extends javax.swing.JFrame {
      */
     public lapPanenPetani() {
         initComponents();
+        this.setLocationRelativeTo(this);
+    }
+
+    public JTextField getPetani() {
+        return petani;
+    }
+
+    public JTextField getLuas() {
+        return luas;
+    }
+
+    public JTextField getJumlah() {
+        return jumlah;
+    }
+
+    public JTable getTable() {
+        return tb_panen;
+    }
+
+    public void addSimpanListener(ActionListener listener) {
+        btn_save.addActionListener(listener);
+    }
+
+    public void addHapusListener(ActionListener listener) {
+        btn_delete.addActionListener(listener);
+    }
+
+    public void backListener(ActionListener listener) {
+        btn_kembali.addActionListener(listener);
     }
 
     /**
@@ -28,14 +62,14 @@ public class lapPanenPetani extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        btn_save = new javax.swing.JButton();
+        jumlah = new javax.swing.JTextField();
+        luas = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tb_panen = new javax.swing.JTable();
+        petani = new javax.swing.JTextField();
+        btn_kembali = new javax.swing.JButton();
+        btn_delete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,25 +80,16 @@ public class lapPanenPetani extends javax.swing.JFrame {
         jLabel2.setText("Laporan Panen");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 400, 90));
 
-        jButton1.setText("cek");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 390, -1, -1));
+        btn_save.setText("SAVE");
+        getContentPane().add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 90, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 210, 40));
+        jumlah.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 210, 40));
 
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 210, 40));
+        luas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(luas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 210, 40));
 
-        jTextField2.setText("jTextField2");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 210, 40));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 470, 300, 160));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tb_panen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -75,9 +100,18 @@ public class lapPanenPetani extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tb_panen);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 500, 160));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 1000, 160));
+
+        petani.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(petani, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 210, 40));
+
+        btn_kembali.setText("KEMBALI");
+        getContentPane().add(btn_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 380, 120, 40));
+
+        btn_delete.setText("DELETE");
+        getContentPane().add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 100, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lap panen petani.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -121,15 +155,15 @@ public class lapPanenPetani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JButton btn_delete;
+    private javax.swing.JButton btn_kembali;
+    private javax.swing.JButton btn_save;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jumlah;
+    private javax.swing.JTextField luas;
+    private javax.swing.JTextField petani;
+    private javax.swing.JTable tb_panen;
     // End of variables declaration//GEN-END:variables
 }

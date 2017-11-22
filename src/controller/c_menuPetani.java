@@ -12,12 +12,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.m_jadwalBibit;
 import model.m_jadwalPupuk;
+import model.m_laporan;
+import model.m_penyakit;
 import model.m_user;
 import view.Pemupukan;
 import view.homePetani;
+import view.lapPanenPetani;
 import view.login;
 import view.penjadwalanBibit;
 import view.penjadwalanPupuk;
+import view.penyakit;
 
 /**
  *
@@ -113,6 +117,15 @@ public class c_menuPetani {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            penyakit a = new penyakit();
+            a.setVisible(true);
+            try {
+                c_penyakit theController = new c_penyakit(a, new m_penyakit());
+            } catch (SQLException ex) {
+                Logger.getLogger(c_penyakit.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("oke");
+            theView.dispose();
         }
     }
 
@@ -120,6 +133,15 @@ public class c_menuPetani {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            lapPanenPetani a = new lapPanenPetani();
+            a.setVisible(true);
+            try {
+                c_laporan theController = new c_laporan(a, new m_laporan());
+            } catch (SQLException ex) {
+                Logger.getLogger(c_laporan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("oke");
+            theView.dispose();
         }
     }
 

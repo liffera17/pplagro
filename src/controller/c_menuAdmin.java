@@ -16,7 +16,6 @@ import model.m_pendaftaran;
 import model.m_user;
 import view.PakarKualitas;
 import view.datakontrak;
-import view.lapPanenAdmin;
 import view.pendaftaran;
 import view.homeAdmin;
 

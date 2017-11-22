@@ -92,6 +92,18 @@ public class PakarKualitas extends javax.swing.JFrame {
         return luas;
     }
 
+    public JTextArea getTindakan(String string) {
+        return tindakan;
+    }
+
+    public void setTindakan(String text) {
+        tindakan.setText(text);
+    }
+
+    public void Message(String pesan) {
+        JOptionPane.showMessageDialog(this, pesan);
+    }
+
     public void setLuas(String text) {
         luas.setText(text);
     }
@@ -104,17 +116,7 @@ public class PakarKualitas extends javax.swing.JFrame {
         kualitas.setText(text);
     }
 
-    public JTextArea getTindakan(String string) {
-        return tindakan;
-    }
-
-    public void setTindakan(String text) {
-        tindakan.setText(text);
-    }
-
-    public void Message(String pesan) {
-        JOptionPane.showMessageDialog(this, pesan);
-    }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -250,11 +252,12 @@ public class PakarKualitas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(varietas, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(petani, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(petani, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(varietas, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(matang, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)

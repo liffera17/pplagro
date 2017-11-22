@@ -7,38 +7,21 @@ package model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Vin
  */
-public class m_penyakit{
+public class m_laporan extends modelInheritence{
 
-    public koneksi kon;
+    private koneksi kon;
     public static String nama;
     public static String luas;
-    public String[] getPenyakit = new String[3];
 
-    public m_penyakit() throws SQLException {
+    public m_laporan() throws SQLException {
         super();
         kon = new koneksi("root", "", "db_ppl");
-    }
-
-    public String[] Penyakit() throws SQLException {
-        String query = "SELECT nama FROM tb_penyakit";
-        ResultSet rs = kon.getResult(query);
-        rs.last();
-        String id[] = new String[rs.getRow()];
-        rs.beforeFirst();
-        int a = 0;
-        while (rs.next()) {
-            id[a] = rs.getString("nama");
-            a++;
-        }
-        a = 0;
-        return id;
     }
 
     public String[] Petani() throws SQLException {
@@ -71,17 +54,33 @@ public class m_penyakit{
         return tahun;
     }
 
-    public void Penyakit(int id) throws SQLException {
-        String query = "Select * from tb_penyakit where id_penyakit= " + id;
-        ResultSet rs = kon.getResult(query);
-        while (rs.next()) {
-            for (int i = 1; i < getPenyakit.length + 1; i++) {
-                getPenyakit[i - 1] = rs.getString(i);
-            }
+    public DefaultTableModel getTable() throws SQLException {
+        String header[] = {"Id Panen", "Nama Petani", "Jumlah", "Luas"};
+        DefaultTableModel tabelModel = new DefaultTableModel(null, header);
+        ResultSet rs = kon.getResult("SELECT * from tb_laporan");
+        for (int i = tabelModel.getRowCount() - 1; i >= 0; i--) {
+            tabelModel.removeRow(i);
         }
+        while (rs.next()) {
+            String kolom[] = new String[4];
+            for (int i = 0; i < kolom.length; i++) {
+                kolom[i] = rs.getString(i + 1);
+            }
+
+            tabelModel.addRow(kolom);
+        }
+        return tabelModel;
     }
 
-    public String getStatus() {
-        return getPenyakit[2];
+    @Override
+    public boolean delete(String query) throws SQLException {
+        String queries = "DELETE FROM tb_laporan WHERE id_laporan =" + query;
+        return super.delete(queries); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean save(String query) throws SQLException {
+        String queries = "INSERT INTO tb_laporan VALUES (" + query + ")";
+        return super.save(queries); //To change body of generated methods, choose Tools | Templates.
     }
 }

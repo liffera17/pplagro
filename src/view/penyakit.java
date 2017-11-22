@@ -5,6 +5,13 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author InSearchOfIncredible
@@ -16,6 +23,45 @@ public class penyakit extends javax.swing.JFrame {
      */
     public penyakit() {
         initComponents();
+        this.setLocationRelativeTo(this);
+    }
+
+    public JComboBox<String> getPenyakit() {
+        return penyakit;
+    }
+
+    public void setComboPenyakit(String[] comboPenyakit) {
+        for (String a : comboPenyakit) {
+            this.penyakit.addItem(a);
+        }
+    }
+
+    public void addCekListener(ActionListener listener) {
+        btn_cek.addActionListener(listener);
+    }
+
+    public void backListener(ActionListener listener) {
+        btn_kembali.addActionListener(listener);
+    }
+
+    public JTextArea getAnalisa(String string) {
+        return analisa;
+    }
+
+    public void setAnalisa(String text) {
+        analisa.setText(text);
+    }
+
+    public void Message(String pesan) {
+        JOptionPane.showMessageDialog(this, pesan);
+    }
+
+    public JTextField getPetani() {
+        return petani;
+    }
+
+    public JTextField getLuas() {
+        return luas;
     }
 
     /**
@@ -30,13 +76,13 @@ public class penyakit extends javax.swing.JFrame {
         btn_cek = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         analisa = new javax.swing.JTextArea();
-        petani = new javax.swing.JLabel();
-        luas = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         penyakit = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
+        petani = new javax.swing.JTextField();
         btn_kembali = new javax.swing.JButton();
+        luas = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,14 +96,6 @@ public class penyakit extends javax.swing.JFrame {
         jScrollPane1.setViewportView(analisa);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, 670, 160));
-
-        petani.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        petani.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(petani, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 210, 50));
-
-        luas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        luas.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(luas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 210, 50));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,14 +114,35 @@ public class penyakit extends javax.swing.JFrame {
         jTextField1.setBorder(null);
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 40, 40));
 
+        petani.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        petani.setForeground(new java.awt.Color(255, 255, 255));
+        petani.setBorder(null);
+        petani.setOpaque(false);
+        petani.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                petaniActionPerformed(evt);
+            }
+        });
+        getContentPane().add(petani, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 240, 30));
+
         btn_kembali.setText("KEMBALI");
         getContentPane().add(btn_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 600, 130, 50));
+
+        luas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        luas.setForeground(new java.awt.Color(255, 255, 255));
+        luas.setBorder(null);
+        luas.setOpaque(false);
+        getContentPane().add(luas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 240, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/penyakit.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void petaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petaniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_petaniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,8 +188,8 @@ public class penyakit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel luas;
+    private javax.swing.JTextField luas;
     private javax.swing.JComboBox<String> penyakit;
-    private javax.swing.JLabel petani;
+    private javax.swing.JTextField petani;
     // End of variables declaration//GEN-END:variables
 }
