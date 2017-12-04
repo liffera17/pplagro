@@ -48,7 +48,7 @@ public class c_pupuk {
             try {
                 c_menuPetani a = new c_menuPetani(new homePetani(), new m_user());
             } catch (SQLException ex) {
-                Logger.getLogger(c_jadwalBibit.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(c_pupuk.class.getName()).log(Level.SEVERE, null, ex);
             }
             theView.dispose();
         }

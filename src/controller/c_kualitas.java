@@ -63,7 +63,8 @@ public class c_kualitas {
         @Override
         public void itemStateChanged(ItemEvent e) {
             try {
-                theModel.status((String) theView.getPetani().getSelectedItem());
+                theModel.idpetani((String)theView.getPetani().getSelectedItem());
+                theModel.idpetani(m_kualitas.luas);
                 theView.setLuas(m_kualitas.luas);
             } catch (SQLException ex) {
                 Logger.getLogger(c_kualitas.class.getName()).log(Level.SEVERE, null, ex);
@@ -1095,7 +1096,7 @@ public class c_kualitas {
                     theView.setMutu(theModel.getStatus().toString());
                     theView.setTindakan(theModel.getTindakan().toString());
                 } else if (theView.getVarietas().getSelectedIndex() == 4 && theView.getMatang().getSelectedIndex() == 1
-                        && theView.getBobot().getSelectedIndex() == 3 && theView.getCacat().getSelectedIndex() == 4) {
+                     && theView.getBobot().getSelectedIndex() == 3 && theView.getCacat().getSelectedIndex() == 4) {
                     theModel.Pakar(4);//12
                     theView.setMutu(theModel.getStatus().toString());
                     theView.setTindakan(theModel.getTindakan().toString());

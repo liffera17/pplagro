@@ -21,18 +21,9 @@ public class homePetani extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
     }
 
-    public void addJadwalPupukListener(ActionListener listener) {
-        btn_jadwal.addActionListener(listener);
-    }
-
     public void addPupukListener(ActionListener listener) {
         btn_pupuk.addActionListener(listener);
     }
-
-    public void addBibitListener(ActionListener listener) {
-        btn_bibit.addActionListener(listener);
-    }
-
     public void addPenyakitListener(ActionListener listener) {
         btn_penyakit.addActionListener(listener);
     }
@@ -55,9 +46,7 @@ public class homePetani extends javax.swing.JFrame {
     private void initComponents() {
 
         btn_laporan = new javax.swing.JButton();
-        btn_jadwal = new javax.swing.JButton();
         btn_pupuk = new javax.swing.JButton();
-        btn_bibit = new javax.swing.JButton();
         btn_penyakit = new javax.swing.JButton();
         btn_logout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -65,40 +54,27 @@ public class homePetani extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_laporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lap panen.png"))); // NOI18N
         btn_laporan.setBorder(null);
         btn_laporan.setBorderPainted(false);
         btn_laporan.setContentAreaFilled(false);
-        getContentPane().add(btn_laporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 455, 190, 210));
+        getContentPane().add(btn_laporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, 120, 210));
 
-        btn_jadwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/jadwal pupuk.png"))); // NOI18N
-        btn_jadwal.setBorder(null);
-        btn_jadwal.setBorderPainted(false);
-        btn_jadwal.setContentAreaFilled(false);
-        getContentPane().add(btn_jadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
-
-        btn_pupuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/spk.png"))); // NOI18N
         btn_pupuk.setBorder(null);
         btn_pupuk.setBorderPainted(false);
         btn_pupuk.setContentAreaFilled(false);
-        getContentPane().add(btn_pupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, -1));
+        getContentPane().add(btn_pupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 130, 200));
 
-        btn_bibit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/jadwal bibit.png"))); // NOI18N
-        btn_bibit.setBorder(null);
-        btn_bibit.setBorderPainted(false);
-        btn_bibit.setContentAreaFilled(false);
-        getContentPane().add(btn_bibit, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 200, -1, -1));
-
-        btn_penyakit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/penyakit.png"))); // NOI18N
         btn_penyakit.setBorder(null);
         btn_penyakit.setBorderPainted(false);
         btn_penyakit.setContentAreaFilled(false);
-        getContentPane().add(btn_penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 430, -1, -1));
+        getContentPane().add(btn_penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 200, 110, 170));
 
-        btn_logout.setText("LOGOUT");
-        getContentPane().add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 560, 100, 100));
+        btn_logout.setBorder(null);
+        btn_logout.setBorderPainted(false);
+        btn_logout.setContentAreaFilled(false);
+        getContentPane().add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, 180, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/home petani 2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/petani.jpg"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(1266, 668));
         jLabel1.setMinimumSize(new java.awt.Dimension(1266, 668));
         jLabel1.setPreferredSize(new java.awt.Dimension(1266, 668));
@@ -144,8 +120,6 @@ public class homePetani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_bibit;
-    private javax.swing.JButton btn_jadwal;
     private javax.swing.JButton btn_laporan;
     private javax.swing.JButton btn_logout;
     private javax.swing.JButton btn_penyakit;

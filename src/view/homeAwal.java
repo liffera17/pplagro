@@ -49,6 +49,11 @@ public class homeAwal extends javax.swing.JFrame {
         btn_login.setBorder(null);
         btn_login.setBorderPainted(false);
         btn_login.setContentAreaFilled(false);
+        btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loginActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, -1, -1));
 
         btn_about.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/about.png"))); // NOI18N
@@ -62,6 +67,10 @@ public class homeAwal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_loginActionPerformed
 
     /**
      * @param args the command line arguments

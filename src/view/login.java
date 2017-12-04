@@ -73,11 +73,13 @@ public class login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        username.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setBorder(null);
         username.setOpaque(false);
         getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 240, 30));
 
+        password.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setBorder(null);
         password.setOpaque(false);

@@ -200,7 +200,7 @@ public class pendaftaran extends javax.swing.JFrame {
         alamat = new javax.swing.JTextField();
         kode_pos = new javax.swing.JTextField();
         no_telp = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         id = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
@@ -209,11 +209,12 @@ public class pendaftaran extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Black Diamonds Personal Use", 0, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pendaftaran");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 70));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 280, 70));
 
+        tb_user.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tb_user.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -229,27 +230,45 @@ public class pendaftaran extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 590, -1));
 
-        btn_save.setText("SAVE");
-        getContentPane().add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 90, 40));
+        btn_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/save.png"))); // NOI18N
+        btn_save.setBorder(null);
+        btn_save.setBorderPainted(false);
+        btn_save.setContentAreaFilled(false);
+        getContentPane().add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 600, 100, 40));
 
-        btn_edit.setText("EDIT");
-        getContentPane().add(btn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 590, 90, 40));
+        btn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/ub.png"))); // NOI18N
+        btn_edit.setBorder(null);
+        btn_edit.setBorderPainted(false);
+        btn_edit.setContentAreaFilled(false);
+        getContentPane().add(btn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 90, 40));
 
-        btn_update.setText("UPDATE");
-        getContentPane().add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 590, 90, 40));
+        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/perbauri.png"))); // NOI18N
+        btn_update.setBorder(null);
+        btn_update.setBorderPainted(false);
+        btn_update.setContentAreaFilled(false);
+        getContentPane().add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 600, 90, 40));
 
-        btn_delete.setText("DELETE");
+        btn_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/hapus.png"))); // NOI18N
+        btn_delete.setBorder(null);
+        btn_delete.setBorderPainted(false);
+        btn_delete.setContentAreaFilled(false);
         btn_delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 590, 90, 40));
+        getContentPane().add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 593, 90, 50));
 
-        btn_back.setText("KEMBALI");
-        getContentPane().add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, 150, 60));
+        btn_back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/keluar.png"))); // NOI18N
+        btn_back.setBorder(null);
+        btn_back.setBorderPainted(false);
+        btn_back.setContentAreaFilled(false);
+        getContentPane().add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 40, 170, 60));
+
+        namadepan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(namadepan, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 190, 30));
 
+        namabelakang.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         namabelakang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namabelakangActionPerformed(evt);
@@ -257,15 +276,27 @@ public class pendaftaran extends javax.swing.JFrame {
         });
         getContentPane().add(namabelakang, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 190, 30));
 
+        jenis_kelamin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jenis_kelamin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PILIH SALAH SATU", "Laki-laki", "Perempuan", " " }));
         getContentPane().add(jenis_kelamin, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 190, 30));
 
+        status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Isi", "Petani" }));
         getContentPane().add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 190, 30));
+
+        email.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 190, 30));
+
+        alamat.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 190, 30));
+
+        kode_pos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(kode_pos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 190, 30));
+
+        no_telp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(no_telp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 190, 30));
+
+        password.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 190, 30));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -350,7 +381,7 @@ public class pendaftaran extends javax.swing.JFrame {
     private javax.swing.JTextField namabelakang;
     private javax.swing.JTextField namadepan;
     private javax.swing.JTextField no_telp;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JComboBox<String> status;
     private javax.swing.JTable tb_user;
     // End of variables declaration//GEN-END:variables

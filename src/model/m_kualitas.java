@@ -18,6 +18,7 @@ public class m_kualitas {
 
     public koneksi kon;
     public static String luas;
+    public static String id;
     public String[] getMutu = new String[3];
 
     public m_kualitas() throws SQLException {
@@ -26,14 +27,14 @@ public class m_kualitas {
     }
 
     public String[] getPetani() throws SQLException {
-        String query = "SELECT petani FROM tb_kontrak";
+        String query = "SELECT k.id_user, u.nama_depan FROM tb_kontrak k join tb_user u on k.id_user=u.id_user";
         ResultSet rs = kon.getResult(query);
         rs.last();
         String id[] = new String[rs.getRow()];
         rs.beforeFirst();
         int a = 0;
         while (rs.next()) {
-            id[a] = rs.getString("petani");
+            id[a] = rs.getString("u.nama_depan");
             a++;
         }
         a = 0;
@@ -41,14 +42,14 @@ public class m_kualitas {
     }
 
     public String[] getVarietas() throws SQLException {
-        String query = "SELECT nilai FROM tb_varietas";
+        String query = "SELECT nilai_varietas FROM tb_varietas";
         ResultSet rs = kon.getResult(query);
         rs.last();
         String id[] = new String[rs.getRow()];
         rs.beforeFirst();
         int a = 0;
         while (rs.next()) {
-            id[a] = rs.getString("nilai");
+            id[a] = rs.getString("nilai_varietas");
             a++;
         }
         a = 0;
@@ -57,14 +58,14 @@ public class m_kualitas {
     }
 
     public String[] getMatang() throws SQLException {
-        String query = "SELECT nilai FROM tb_matang";
+        String query = "SELECT nilai_matang FROM tb_matang";
         ResultSet rs = kon.getResult(query);
         rs.last();
         String id[] = new String[rs.getRow()];
         rs.beforeFirst();
         int a = 0;
         while (rs.next()) {
-            id[a] = rs.getString("nilai");
+            id[a] = rs.getString("nilai_matang");
             a++;
         }
         a = 0;
@@ -72,14 +73,14 @@ public class m_kualitas {
     }
 
     public String[] getBobot() throws SQLException {
-        String query = "SELECT nilai FROM tb_bobot";
+        String query = "SELECT nilai_bobot FROM tb_bobot";
         ResultSet rs = kon.getResult(query);
         rs.last();
         String id[] = new String[rs.getRow()];
         rs.beforeFirst();
         int a = 0;
         while (rs.next()) {
-            id[a] = rs.getString("nilai");
+            id[a] = rs.getString("nilai_bobot");
             a++;
         }
         a = 0;
@@ -87,27 +88,37 @@ public class m_kualitas {
     }
 
     public String[] getCacat() throws SQLException {
-        String query = "SELECT nilai FROM tb_cacat";
+        String query = "SELECT nilai_cacat FROM tb_cacat";
         ResultSet rs = kon.getResult(query);
         rs.last();
         String id[] = new String[rs.getRow()];
         rs.beforeFirst();
         int a = 0;
         while (rs.next()) {
-            id[a] = rs.getString("nilai");
+            id[a] = rs.getString("nilai_cacat");
             a++;
         }
         a = 0;
         return id;
     }
 
-    public void status(String id) throws SQLException {
-        String sql = "select luas from tb_kontrak where petani='" + id+"'";
-        Statement st = kon.getConnection().createStatement();
-        ResultSet rs = st.executeQuery(sql);
-        rs.next();
-        luas = rs.getString("luas");
+//    public void status(String id) throws SQLException {
+//        String sql = "select luas from tb_kontrak where id_user=" + id + "";
+//        Statement st = kon.getConnection().createStatement();
+//        ResultSet rs = st.executeQuery(sql);
+//        rs.next();
+//        luas = rs.getString("luas");
+//        
+//    }
 
+    public String idpetani(String nama) throws SQLException {
+        String query = "SELECT k.id_user, k.luas, u.nama_depan FROM tb_kontrak k join tb_user u on k.id_user=u.id_user WHERE u.nama_depan='" + nama + "'";
+        ResultSet rs = kon.getResult(query);
+        while (rs.next()) {
+            id = rs.getString("id_user");
+            luas = rs.getString("luas");
+        }
+        return id;
     }
 
     public void Pakar(int id) throws SQLException {
@@ -127,4 +138,5 @@ public class m_kualitas {
     public String getTindakan() {
         return getMutu[2];
     }
+
 }

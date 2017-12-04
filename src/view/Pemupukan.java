@@ -5,7 +5,6 @@
  */
 package view;
 
-import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -72,16 +71,24 @@ public class Pemupukan extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         analisa.setColumns(20);
+        analisa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         analisa.setRows(5);
         jScrollPane1.setViewportView(analisa);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 550, 200));
 
-        btn_cek.setText("CEK");
-        getContentPane().add(btn_cek, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 313, 90, 30));
+        btn_cek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/cek2.png"))); // NOI18N
+        btn_cek.setBorder(null);
+        btn_cek.setBorderPainted(false);
+        btn_cek.setContentAreaFilled(false);
+        getContentPane().add(btn_cek, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 300, 90, 40));
 
-        btn_kembali.setText("KEMBALI");
-        getContentPane().add(btn_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 600, 150, 40));
+        btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/keluar.png"))); // NOI18N
+        btn_kembali.setBorder(null);
+        btn_kembali.setBorderPainted(false);
+        btn_kembali.setContentAreaFilled(false);
+        btn_kembali.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(btn_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 590, 170, 50));
 
         petani.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         petani.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,10 +98,10 @@ public class Pemupukan extends javax.swing.JFrame {
         pupuk.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(pupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 240, 40));
 
-        jLabel2.setFont(new java.awt.Font("Black Diamonds Personal Use", 0, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pemupukan");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 280, 120));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 280, 120));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/spk pupuk.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

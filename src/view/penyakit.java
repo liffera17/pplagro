@@ -88,10 +88,14 @@ public class penyakit extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_cek.setText("CEK");
-        getContentPane().add(btn_cek, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 370, 90, 40));
+        btn_cek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/cek2.png"))); // NOI18N
+        btn_cek.setBorder(null);
+        btn_cek.setBorderPainted(false);
+        btn_cek.setContentAreaFilled(false);
+        getContentPane().add(btn_cek, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 370, 90, 40));
 
         analisa.setColumns(20);
+        analisa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         analisa.setRows(5);
         jScrollPane1.setViewportView(analisa);
 
@@ -102,11 +106,12 @@ public class penyakit extends javax.swing.JFrame {
         jLabel3.setText("Ha");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 40, 70));
 
-        jLabel2.setFont(new java.awt.Font("Black Diamonds Personal Use", 0, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Hama Penyakit");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 370, 70));
 
+        penyakit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         penyakit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
         getContentPane().add(penyakit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 220, 30));
 
@@ -125,8 +130,11 @@ public class penyakit extends javax.swing.JFrame {
         });
         getContentPane().add(petani, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 240, 30));
 
-        btn_kembali.setText("KEMBALI");
-        getContentPane().add(btn_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 600, 130, 50));
+        btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/keluar.png"))); // NOI18N
+        btn_kembali.setBorder(null);
+        btn_kembali.setBorderPainted(false);
+        btn_kembali.setContentAreaFilled(false);
+        getContentPane().add(btn_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 600, 170, 50));
 
         luas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         luas.setForeground(new java.awt.Color(255, 255, 255));

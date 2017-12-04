@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import model.m_jadwalBibit;
 import model.m_kontrak;
 import model.m_pendaftaran;
 import model.m_user;
@@ -22,8 +21,6 @@ import view.homeAdmin;
 import view.homePetani;
 import view.login;
 import view.pendaftaran;
-import view.penjadwalanBibit;
-import view.penjadwalanPupuk;
 
 /**
  *
@@ -110,25 +107,32 @@ public class c_user {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
+                if (view.getJK() == "PILIH SALAH SATU" || view.getStatus() == "Silahkan Isi" || view.getNamaDepan().isEmpty() || view.getNamaBelakang().isEmpty()
+                        || view.getUsername().isEmpty() || view.getAlamat().isEmpty() || view.getKode().isEmpty() || view.getNoTelp().isEmpty() || view.getPassword().isEmpty()) {
+                    view.setJK(0);
+                    view.setStatus(0);
+                    JOptionPane.showMessageDialog(view, "Isi dengan benar!!");
+                } else {
 //                model.save(view.getNamauser(), view.getUsername(), view.getPass(), view.getStatus());
-                model.save("NULL,'" + view.getNamaDepan() + "','" + view.getNamaBelakang() + "','" + view.getJK() + "','"
-                        + view.getStatus() + "','"
-                        + view.getUsername() + "','"
-                        + view.getAlamat() + "','"
-                        + view.getKode() + "','" + view.getNoTelp() + "','" + view.getPassword() + "'" + "");
-                view.setTable(model.getTableModel());
-                view.setNamaDepan("");
-                view.setNamaBelakang("");
+                    model.save("NULL,'" + view.getNamaDepan() + "','" + view.getNamaBelakang() + "','" + view.getJK() + "','"
+                            + view.getStatus() + "','"
+                            + view.getUsername() + "','"
+                            + view.getAlamat() + "','"
+                            + view.getKode() + "','" + view.getNoTelp() + "','" + view.getPassword() + "'" + "");
+                    view.setTable(model.getTableModel());
+                    view.setNamaDepan("");
+                    view.setNamaBelakang("");
 //                view.setJK("");
 //                view.setStatus("");
-                view.setUsername("");
-                view.setAlamat("");
-                view.setKode("");
-                view.setNoTelp("");
-                view.setPassword("");
-                view.text(false);
-                view.buttonsave(true);
-                view.button(true);
+                    view.setUsername("");
+                    view.setAlamat("");
+                    view.setKode("");
+                    view.setNoTelp("");
+                    view.setPassword("");
+                    view.text(true);
+                    view.buttonsave(true);
+                    view.button(true);
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(c_user.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -175,27 +179,35 @@ public class c_user {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                int baris = view.getSelectedRow();
-                String id = view.getId();
+
+                if (view.getJK() == "PILIH SALAH SATU" || view.getStatus() == "Silahkan Isi" || view.getNamaDepan().isEmpty() || view.getNamaBelakang().isEmpty()
+                        || view.getUsername().isEmpty() || view.getAlamat().isEmpty() || view.getKode().isEmpty() || view.getNoTelp().isEmpty() || view.getPassword().isEmpty()) {
+                    view.setJK(0);
+                    view.setStatus(0);
+                    JOptionPane.showMessageDialog(view, "Isi dengan benar!!");
+                } else {
+                    int baris = view.getSelectedRow();
+                    String id = view.getId();
 //                int id = Integer.parseInt(iduser);
-                String namaDepan = view.getNamaDepan();
-                String namaBelakang = view.getNamaBelakang();
-                String jenis = view.getJK();
-                String status = view.getStatus();
-                String username = view.getUsername();
-                String alamat = view.getAlamat();
-                String kode = view.getKode();
-                String notelp = view.getNoTelp();
-                String pass = view.getPassword();
-                model.update("nama_depan ='" + namaDepan + "', nama_belakang='" + namaBelakang + "', jenis_kelamin='" + jenis + "', status_user= '"
-                        + status + "', email ='" + username + "', alamat= '" + alamat + "', kode_pos= '" + kode + "', no_telp= '" + notelp
-                        + "', password= '" + pass + "' WHERE id_user =" + id);
+                    String namaDepan = view.getNamaDepan();
+                    String namaBelakang = view.getNamaBelakang();
+                    String jenis = view.getJK();
+                    String status = view.getStatus();
+                    String username = view.getUsername();
+                    String alamat = view.getAlamat();
+                    String kode = view.getKode();
+                    String notelp = view.getNoTelp();
+                    String pass = view.getPassword();
+                    model.update("nama_depan ='" + namaDepan + "', nama_belakang='" + namaBelakang + "', jenis_kelamin='" + jenis + "', status_user= '"
+                            + status + "', email ='" + username + "', alamat= '" + alamat + "', kode_pos= '" + kode + "', no_telp= '" + notelp
+                            + "', password= '" + pass + "' WHERE id_user =" + id);
 //                model.update(id, nama, user, pass, status);
-                clear();
-                view.text(true);
-                view.buttonupdate(true);
-                view.button(true);
-                view.setTable(model.getTableModel());
+                    clear();
+                    view.text(true);
+                    view.buttonupdate(true);
+                    view.button(true);
+                    view.setTable(model.getTableModel());
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(c_user.class.getName()).log(Level.SEVERE, null, ex);
             }

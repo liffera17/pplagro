@@ -24,6 +24,9 @@ public class homeAdmin extends javax.swing.JFrame {
     public void addDaftarListener(ActionListener listener) {
         btn_daftar.addActionListener(listener);
     }
+    public void addFeedbackListener(ActionListener listener) {
+        btn_feedback.addActionListener(listener);
+    }
 
     public void addLaporanListener(ActionListener listener) {
         btn_laporan.addActionListener(listener);
@@ -32,7 +35,11 @@ public class homeAdmin extends javax.swing.JFrame {
     public void addKontrakListener(ActionListener listener) {
         btn_kontrak.addActionListener(listener);
     }
+    public void addLogoutListener(ActionListener listener) {
+        btn_logout.addActionListener(listener);
+    }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,30 +52,39 @@ public class homeAdmin extends javax.swing.JFrame {
         btn_kontrak = new javax.swing.JButton();
         btn_laporan = new javax.swing.JButton();
         btn_daftar = new javax.swing.JButton();
+        btn_feedback = new javax.swing.JButton();
+        btn_logout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_kontrak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/data K.png"))); // NOI18N
         btn_kontrak.setBorder(null);
         btn_kontrak.setBorderPainted(false);
         btn_kontrak.setContentAreaFilled(false);
-        getContentPane().add(btn_kontrak, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        getContentPane().add(btn_kontrak, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 180, 230));
 
-        btn_laporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lap panen.png"))); // NOI18N
         btn_laporan.setBorder(null);
         btn_laporan.setBorderPainted(false);
         btn_laporan.setContentAreaFilled(false);
-        getContentPane().add(btn_laporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 130, -1, -1));
+        getContentPane().add(btn_laporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, 190, 230));
 
-        btn_daftar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/pendaftaran.png"))); // NOI18N
         btn_daftar.setBorder(null);
         btn_daftar.setBorderPainted(false);
         btn_daftar.setContentAreaFilled(false);
-        getContentPane().add(btn_daftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
+        getContentPane().add(btn_daftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 340, 150));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/home admin.jpg"))); // NOI18N
+        btn_feedback.setBorder(null);
+        btn_feedback.setBorderPainted(false);
+        btn_feedback.setContentAreaFilled(false);
+        getContentPane().add(btn_feedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, 390, 140));
+
+        btn_logout.setBorder(null);
+        btn_logout.setBorderPainted(false);
+        btn_logout.setContentAreaFilled(false);
+        getContentPane().add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 620, 180, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/admin.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -111,8 +127,10 @@ public class homeAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_daftar;
+    private javax.swing.JButton btn_feedback;
     private javax.swing.JButton btn_kontrak;
     private javax.swing.JButton btn_laporan;
+    private javax.swing.JButton btn_logout;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,8 +5,8 @@
  */
 package view;
 
-import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -89,6 +89,10 @@ public class datakontrak extends javax.swing.JFrame {
         this.bibit.setText(bibit);
     }
 
+    public void setLuas(String luas) {
+        this.luas.setText(luas);
+    }
+
     public void setPupuk(String pupuk) {
         this.pupuk.setText(pupuk);
     }
@@ -102,8 +106,6 @@ public class datakontrak extends javax.swing.JFrame {
 
     public void button(boolean status) {
         this.btn_save.setEnabled(status);
-        this.btn_edit.setEnabled(status);
-        this.btn_update.setEnabled(status);
         this.btn_delete.setEnabled(status);
         this.btn_back.setEnabled(status);
     }
@@ -114,14 +116,6 @@ public class datakontrak extends javax.swing.JFrame {
 
     public void addDeleteListener(ActionListener e) {
         this.btn_delete.addActionListener(e);
-    }
-
-    public void addUpdateListener(ActionListener e) {
-        this.btn_update.addActionListener(e);
-    }
-
-    public void addEditListener(ActionListener e) {
-        this.btn_edit.addActionListener(e);
     }
 
     public void addBackListener(ActionListener e) {
@@ -138,14 +132,6 @@ public class datakontrak extends javax.swing.JFrame {
 
     public void buttondelete(boolean status) {
         this.btn_delete.setEnabled(status);
-    }
-
-    public void buttonedit(boolean status) {
-        this.btn_edit.setEnabled(status);
-    }
-
-    public void buttonupdate(boolean status) {
-        this.btn_update.setEnabled(status);
     }
 
     /**
@@ -166,8 +152,6 @@ public class datakontrak extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btn_save = new javax.swing.JButton();
-        btn_edit = new javax.swing.JButton();
-        btn_update = new javax.swing.JButton();
         btn_delete = new javax.swing.JButton();
         btn_back = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -181,6 +165,7 @@ public class datakontrak extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        petani.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         petani.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
         petani.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,14 +174,14 @@ public class datakontrak extends javax.swing.JFrame {
         });
         getContentPane().add(petani, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 170, 50));
 
-        luas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        luas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(luas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 170, 50));
 
-        bibit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        bibit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bibit.setEnabled(false);
         getContentPane().add(bibit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 170, 50));
 
-        pupuk.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        pupuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pupuk.setEnabled(false);
         getContentPane().add(pupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 170, 50));
 
@@ -220,20 +205,28 @@ public class datakontrak extends javax.swing.JFrame {
         jLabel6.setText("ID    :");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 80, 50));
 
-        btn_save.setText("SAVE");
-        getContentPane().add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, 90, 40));
+        btn_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/save.png"))); // NOI18N
+        btn_save.setBorder(null);
+        btn_save.setBorderPainted(false);
+        btn_save.setContentAreaFilled(false);
+        getContentPane().add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 300, 100, 40));
 
-        btn_edit.setText("EDIT");
-        getContentPane().add(btn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 90, 40));
+        btn_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/hapus.png"))); // NOI18N
+        btn_delete.setBorder(null);
+        btn_delete.setBorderPainted(false);
+        btn_delete.setContentAreaFilled(false);
+        btn_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 300, 100, 40));
 
-        btn_update.setText("UPDATE");
-        getContentPane().add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 300, 100, 40));
-
-        btn_delete.setText("DELETE");
-        getContentPane().add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 300, 100, 40));
-
-        btn_back.setText("KEMBALI");
-        getContentPane().add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, 150, 60));
+        btn_back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar3/keluar.png"))); // NOI18N
+        btn_back.setBorder(null);
+        btn_back.setBorderPainted(false);
+        btn_back.setContentAreaFilled(false);
+        getContentPane().add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 580, 170, 60));
 
         tb_kontrak.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -250,10 +243,10 @@ public class datakontrak extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 640, 240));
 
-        jLabel8.setFont(new java.awt.Font("Black Diamonds Personal Use", 0, 48)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Data Kontrak");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 340, 90));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 320, 90));
 
         id.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         id.setForeground(new java.awt.Color(255, 255, 255));
@@ -276,6 +269,10 @@ public class datakontrak extends javax.swing.JFrame {
     private void petaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petaniActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_petaniActionPerformed
+
+    private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_deleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,9 +313,7 @@ public class datakontrak extends javax.swing.JFrame {
     private javax.swing.JTextField bibit;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_delete;
-    private javax.swing.JButton btn_edit;
     private javax.swing.JButton btn_save;
-    private javax.swing.JButton btn_update;
     private javax.swing.JLabel id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

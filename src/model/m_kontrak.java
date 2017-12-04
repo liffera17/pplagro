@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class m_kontrak extends modelInheritence {
 
     private final koneksi kon;
-    
+    public static String id;
 
     public m_kontrak() throws SQLException {
         super();
@@ -29,7 +29,7 @@ public class m_kontrak extends modelInheritence {
         Object[] header = {"Id_Kontrak", "Petani", "Luas", "Jumlah Bibit", "Jumlah Pupuk"};
         DefaultTableModel tableModel = new DefaultTableModel(null, header);
 
-        String sql = "select * from tb_kontrak";
+        String sql = "select k.id_kontrak,u.nama_depan,k.luas,k.jumlah_bibit,k.jumlah_pupuk from tb_kontrak k join tb_user u on k.id_user=u.id_user";
         for (int i = tableModel.getRowCount() - 1; i >= 0; i--) {
             tableModel.removeRow(i);
         }
@@ -45,7 +45,7 @@ public class m_kontrak extends modelInheritence {
     }
 
     public String[] Petani() throws SQLException {
-        String query = "SELECT * FROM tb_user WHERE status_user='Petani'";
+        String query = "SELECT id_user, nama_depan FROM tb_user WHERE status_user='Petani'";
         ResultSet rs = kon.getResult(query);
         rs.last();
         String Petani[] = new String[rs.getRow()];
@@ -59,14 +59,23 @@ public class m_kontrak extends modelInheritence {
         return Petani;
     }
 
+    public String idpetani(String nama) throws SQLException {
+        String query = "SELECT * FROM tb_user WHERE nama_depan='" + nama + "'";
+        ResultSet rs = kon.getResult(query);
+        while (rs.next()) {
+            id = rs.getString("id_user");
+        }
+        return id;
+    }
+
     @Override
     public boolean delete(String query) throws SQLException {
-        String queries = "DELETE FROM tb_kontrak WHERE id_user='" + query + "'";
+        String queries = "DELETE FROM tb_kontrak WHERE id_kontrak='" + query + "'";
         return super.delete(queries); //To change body of generated methods, choose Tools | Templates.
     }
 
     public boolean update(String query, String id) throws SQLException {
-        String queries = "UPDATE tb_kontrak SET " + query + "WHERE id_user=" + id;
+        String queries = "UPDATE tb_kontrak SET " + query + "WHERE id_kontrak=" + id;
         return super.update(queries); //To change body of ge nerated methods, choose Tools | Templates.
     }
 

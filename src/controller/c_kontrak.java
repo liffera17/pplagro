@@ -8,8 +8,6 @@ package controller;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -17,6 +15,8 @@ import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import model.m_kontrak;
 import model.m_user;
 import view.datakontrak;
@@ -33,15 +33,12 @@ public class c_kontrak {
     public m_kontrak model;
     public static double bibit;
     public static double pupuk;
-    
 
     public c_kontrak(datakontrak view, m_kontrak model) throws SQLException {
         this.model = model;
         this.view = view;
         view.setVisible(true);
         view.addSaveListener(new saveListener());
-        view.addEditListener(new editListener());
-        view.addUpdateListener(new updateListener());
         view.addDeleteListener(new hapusListener());
         view.addBackListener(new backListener());
         view.getLuas(new hitungLuas());
@@ -67,7 +64,7 @@ public class c_kontrak {
 //           bibit = ((getluas() * ((10000 / 20) * (10000 / 20))) * (100 / 90) * 3 * (130 / 1000))
 //           hit pupuk = luas x (30kg/36)x100
 //           pupuk = ((getluas()*(30/36))*100)
-            String regex = "\\d+";//untuk menggunakan parameternya
+            String regex = "[0-9]*\\.?[0-9]*";//untuk menggunakan parameternya
             if (view.getLuas().getText().matches(regex)) {
                 bibit = ((Double.valueOf(view.getLuas().getText()) * (Math.pow(500, 2) * 0.9 * 0.39)));
                 view.getBibit().setText(Double.toString(bibit / 1000));
@@ -86,56 +83,17 @@ public class c_kontrak {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                model.save("'" + view.getPetani().getSelectedItem() + "'," + view.getLuas().getText() + "," + view.getBibit().getText() + "," + view.getPupuk().getText());
-                System.out.println("'" + view.getPetani().getSelectedItem() + "'," + view.getLuas().getText() + "," + view.getBibit().getText() + "," + view.getPupuk().getText());
+                model.idpetani((String) view.getPetani().getSelectedItem());
+                model.save(m_kontrak.id + "," + view.getLuas().getText() + "," + view.getBibit().getText() + "," + view.getPupuk().getText());
+//                System.out.println(m_kontrak.id + "," + view.getLuas().getText() + "," + view.getBibit().getText() + "," + view.getPupuk().getText());
                 view.setTable(model.getTableModel());
 //                view.setPetani("");
 //                view.setLuas("");
                 view.setBibit("");
                 view.setPupuk("");
-                view.text(false);
+                view.text(true);
                 view.buttonsave(true);
                 view.button(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(c_kontrak.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-
-    private class editListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            int baris = view.getSelectedRow();
-            if (baris != -1) {
-
-                String idKontrak = view.getValueAt(baris, 0);
-                String Petani = view.getValueAt(baris, 1);
-                String Luas = view.getValueAt(baris, 2);
-                String Bibit = view.getValueAt(baris, 3);
-                String Pupuk = view.getValueAt(baris, 4);
-
-                view.setId(idKontrak);
-//                view.setPetani(Petani);
-//                view.setLuas(Luas);
-                view.setBibit(Bibit);
-                view.setPupuk(Pupuk);
-                view.text(true);
-            }
-//        view.button(true);
-        }
-    }
-
-    private class updateListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            try {
-                model.update(Double.toString(bibit), (String) view.getPetani().getSelectedItem());
-                view.getTableKontrak().setModel(model.getTableModel());
-                model.update(Double.toString(pupuk), (String) view.getPetani().getSelectedItem());
-                view.getTableKontrak().setModel(model.getTableModel());
             } catch (SQLException ex) {
                 Logger.getLogger(c_kontrak.class.getName()).log(Level.SEVERE, null, ex);
             }

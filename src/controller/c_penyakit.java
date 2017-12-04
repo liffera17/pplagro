@@ -52,7 +52,7 @@ public class c_penyakit {
             System.out.println("oke");
             theView.dispose();
         }
-
+ 
     }
 
     private class cekListener implements ActionListener {

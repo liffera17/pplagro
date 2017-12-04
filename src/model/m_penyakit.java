@@ -27,14 +27,14 @@ public class m_penyakit{
     }
 
     public String[] Penyakit() throws SQLException {
-        String query = "SELECT nama FROM tb_penyakit";
+        String query = "SELECT nama_penyakit FROM tb_penyakit where status_penyakit='Disetujui'";
         ResultSet rs = kon.getResult(query);
         rs.last();
         String id[] = new String[rs.getRow()];
         rs.beforeFirst();
         int a = 0;
         while (rs.next()) {
-            id[a] = rs.getString("nama");
+            id[a] = rs.getString("nama_penyakit");
             a++;
         }
         a = 0;

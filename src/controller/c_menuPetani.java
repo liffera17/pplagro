@@ -10,17 +10,14 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.m_jadwalBibit;
-import model.m_jadwalPupuk;
-import model.m_laporan;
+import model.m_feedback;
+import model.m_feedback;
 import model.m_penyakit;
 import model.m_user;
 import view.Pemupukan;
 import view.homePetani;
-import view.lapPanenPetani;
+import view.feedbackPenyakit;
 import view.login;
-import view.penjadwalanBibit;
-import view.penjadwalanPupuk;
 import view.penyakit;
 
 /**
@@ -36,11 +33,9 @@ public class c_menuPetani {
         this.theView = theView;
         this.theModel = theModel;
         theView.setVisible(true);
-        this.theView.addJadwalPupukListener(new jadwalListener());
         this.theView.addPupukListener(new pupukListener());
-        this.theView.addBibitListener(new bibitListener());
         this.theView.addPenyakitListener(new penyakitListener());
-        this.theView.addLaporanListener(new laporanListener());
+        this.theView.addLaporanListener(new feedbackListener());
         this.theView.logoutListener(new logoutListener());
     }
 
@@ -62,23 +57,6 @@ public class c_menuPetani {
 
     }
 
-    private class jadwalListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            penjadwalanPupuk a = new penjadwalanPupuk();
-            a.setVisible(true);
-
-            try {
-                c_jadwalPupuk theController = new c_jadwalPupuk(a, new m_jadwalPupuk());
-            } catch (SQLException ex) {
-                Logger.getLogger(c_jadwalPupuk.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            System.out.println("oke");
-            theView.dispose();
-        }
-    }
-
     private class pupukListener implements ActionListener {
 
         @Override
@@ -90,23 +68,6 @@ public class c_menuPetani {
                 c_pupuk theController = new c_pupuk(a);
             } catch (SQLException ex) {
                 Logger.getLogger(c_menuPetani.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            System.out.println("oke");
-            theView.dispose();
-        }
-    }
-
-    private class bibitListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            penjadwalanBibit a = new penjadwalanBibit();
-            a.setVisible(true);
-
-            try {
-                c_jadwalBibit theController = new c_jadwalBibit(a, new m_jadwalBibit());
-            } catch (SQLException ex) {
-                Logger.getLogger(c_jadwalBibit.class.getName()).log(Level.SEVERE, null, ex);
             }
             System.out.println("oke");
             theView.dispose();
@@ -129,16 +90,16 @@ public class c_menuPetani {
         }
     }
 
-    private class laporanListener implements ActionListener {
+    private class feedbackListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            lapPanenPetani a = new lapPanenPetani();
+            feedbackPenyakit a = new feedbackPenyakit();
             a.setVisible(true);
             try {
-                c_laporan theController = new c_laporan(a, new m_laporan());
+                c_feedback theController = new c_feedback(a, new m_feedback());
             } catch (SQLException ex) {
-                Logger.getLogger(c_laporan.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(c_feedback.class.getName()).log(Level.SEVERE, null, ex);
             }
             System.out.println("oke");
             theView.dispose();
