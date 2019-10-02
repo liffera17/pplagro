@@ -51,6 +51,7 @@ public class c_user {
         } catch (SQLException ex) {
             Logger.getLogger(c_user.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("Aksi Dilakukan");
     }
 
     c_user(login theView, m_user theModel) {
