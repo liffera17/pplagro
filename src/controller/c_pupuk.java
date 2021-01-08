@@ -37,6 +37,7 @@ public class c_pupuk {
         public void actionPerformed(ActionEvent e) {
             double hasil = Double.valueOf(theView.getPupuk().getText()) / 4;
             theView.setAnalisa("Pemupukan Dilakukan 4 Kali Dengan Dosis sebesar = " + hasil + " kg.");
+            System.out.println("Aksi Dilakukan");
         }
 
     }

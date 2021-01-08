@@ -50,6 +50,7 @@ public class c_kontrak {
 
         @Override
         public void keyTyped(KeyEvent e) {
+            System.out.println("Aksi Dilakukan");
         }
 
         @Override
