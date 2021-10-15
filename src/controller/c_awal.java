@@ -44,6 +44,78 @@ public class c_awal {
         }
     }
 
+ private class jumlahVaksin implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            if (view.getJumlahVaksin().getText().matches(regex)) {
+                if (Integer.valueOf(view.getJumlahVaksin().getText()) > 150) {
+                    JOptionPane.showMessageDialog(view, "Vaksin Maksimal 150 ML / Vitaminnya Silahkan Masukkan Kembali Vitaminnya");
+                    view.getJumlahVaksin().setText("");
+                }
+            } else {
+                JOptionPane.showMessageDialog(view, "Mohon Untuk Memasukkan Karakter Angka");
+                view.getJumlahVaksin().setText("");
+            }
+        }
+
+    }
+
+    private class jumlahVitamin3 implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            if (view.getJumlahVitamin2().getText().matches(regex)) {
+                if (Integer.valueOf(view.getJumlahVitamin2().getText()) > 3) {
+                    JOptionPane.showMessageDialog(view, "Vitamin Maksimal 3 kg / Vitaminnya Silahkan Masukkan Kembali Beratnya");
+                    view.getJumlahVitamin2().setText("");
+                }
+            } else {
+                JOptionPane.showMessageDialog(view, "Mohon Untuk Memasukkan Karakter Angka");
+                view.getJumlahVitamin2().setText("");
+            }
+        }
+
+    }
+
+    private class btnKeluar implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.exit(0);
+        }
+
+        
+    }
+
+    private class btnLogin implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                c_user a = new c_user(new v_LOGIN(), new m_user());
+                view.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(c_menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     private class v_about implements ActionListener {
 
         @Override
